@@ -17,10 +17,11 @@ app.use(authRoutes);
 app.use(trackRoutes);
 
 const mongoUri =
-    "mongodb+srv://paul:timormortis@cluster0.5nq7f.mongodb.net/<dbname>?retryWrites=true&w=majority";
+    "mongodb+srv://paul:timormortis@cluster0.5nq7f.mongodb.net/tracking?retryWrites=true&w=majority";
 mongoose.connect(mongoUri, {
     useNewUrlParser: true,
     useCreateIndex: true,
+    useUnifiedTopology: true,
 });
 mongoose.connection.on("connected", () => {
     console.log("Connected to mongo instance");
