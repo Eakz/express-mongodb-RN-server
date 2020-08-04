@@ -24,7 +24,6 @@ router.post("/signin", async (req, res) => {
             .status(422)
             .send({ erro: "Must provide email annd password!" });
     }
-
     const user = await User.findOne({ email });
     if (!user) {
         return res.status(422).send({ error: "Invalid password or email!" });
